@@ -1,0 +1,2 @@
+# bcg
+Boilerplate Code Genrator
