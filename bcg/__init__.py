@@ -23,7 +23,7 @@ import sys
 
 
 def main():
-    types_db = build_types_db()
+    types_db = build_types_db(get_types_dirs())
     parser = argparse.ArgumentParser()
     parser.epilog = 'Available types: {}'.format(
         ', '.join(sorted(types_db.keys())))
@@ -57,7 +57,7 @@ def generate(filename, type, types_db, overwrite=False):
     shutil.copy(types_db[type], filename)
 
 
-def build_types_db():
+def get_types_dirs():
     dirs = []
     if 'XDG_CONFIG_DIRS' in os.environ:
         dirs += [d for d in os.environ['XDG_CONFIG_DIRS'].split(':') if d]
@@ -67,6 +67,9 @@ def build_types_db():
         dirs.append('$HOME/.config')
     dirs = [os.path.join(os.path.expandvars(d), 'bcg', 'types') for d in dirs]
     dirs.append(os.path.join(os.path.dirname(__file__), 'types'))
+    return dirs
+
+def build_types_db(dirs):
     types = dict()
     for d in dirs:
         if not os.path.isdir(d):
