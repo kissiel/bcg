@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Written by:
 #   Maciej Kisielewski <kissiel@gmail.com>
 #
