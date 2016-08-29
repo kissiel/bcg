@@ -61,9 +61,11 @@ def build_types_db():
     dirs = []
     if 'XDG_CONFIG_DIRS' in os.environ:
         dirs += [d for d in os.environ['XDG_CONFIG_DIRS'].split(':') if d]
-    if 'HOME' in os.environ:
-        dirs.append(os.environ.get('XDG_CONFIG_HOME', '$HOME/.config'))
-    dirs = [os.path.join(os.path.expandvars(d), 'bcg') for d in dirs]
+    if 'XDG_CONFIG_HOME' in os.environ:
+        dirs.append(os.environ['XDG_CONFIG_HOME'])
+    elif 'HOME' in os.environ:
+        dirs.append('$HOME/.config')
+    dirs = [os.path.join(os.path.expandvars(d), 'bcg', 'types') for d in dirs]
     dirs.append(os.path.join(os.path.dirname(__file__), 'types'))
     types = dict()
     for d in dirs:
