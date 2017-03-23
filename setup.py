@@ -23,8 +23,9 @@ setup(
     packages=['bcg'],
     entry_points={
         'console_scripts': [
-            'bcg = bcg.bcg:main',
+            'bcg = bcg:main',
         ]
     },
     package_data={'bcg': ['types/*']},
+    test_suite='bcg.tests'
 )
