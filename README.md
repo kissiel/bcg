@@ -1,6 +1,6 @@
 # bcg - Boilerplate Code Generator
-###BCG creates a file with boilerplate content already in it.
-###Type of content can be specified or inferred from the file extension.
+### BCG creates a file with boilerplate content already in it.
+### Type of content can be specified or inferred from the file extension.
 
 Usage:
 `$ bcg FILE TYPE`
