@@ -4,8 +4,10 @@
 
 Usage:
 `$ bcg FILE TYPE`
+
 `FILE` is the filename to be geneareted,
 `TYPE` is optional template name to use
+
 e.g.:
 * `$ bcg foo.py` - create `foo.py` using `py` template
 * `$ bcg bar cpp` - create `bar` file using `cpp` template
